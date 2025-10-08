@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-
-type Tarefa = {
-  id: number;
-  titulo: string;
-  concluida: boolean;
-};
+import { Tarefa } from '../App';
+import styles from './Input.module.css';
 
 type Props = {
   tarefas: Tarefa[];
@@ -13,6 +9,9 @@ type Props = {
 
 const Input: React.FC<Props> = ({ tarefas, setTarefas }) => {
   const [novaTarefa, setNovaTarefa] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [dataInicio, setDataInicio] = useState('');
+  const [dataTermino, setDataTermino] = useState('');
 
   const adicionarTarefa = () => {
     const titulo = novaTarefa.trim();
@@ -21,11 +20,17 @@ const Input: React.FC<Props> = ({ tarefas, setTarefas }) => {
     const nova: Tarefa = {
       id: Date.now(),
       titulo,
+      descricao,
+      dataInicio,
+      dataTermino,
       concluida: false,
     };
 
     setTarefas([...tarefas, nova]);
     setNovaTarefa('');
+    setDescricao('');
+    setDataInicio('');
+    setDataTermino('');
   };
 
   const alternarStatus = (id: number) => {
@@ -38,54 +43,62 @@ const Input: React.FC<Props> = ({ tarefas, setTarefas }) => {
     );
   };
 
+  const removerTarefa = (id: number) => {
+    setTarefas((tarefasAnteriores) =>
+      tarefasAnteriores.filter((tarefa) => tarefa.id !== id)
+    );
+  };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-      {/* Campo de nova tarefa */}
-      <div style={{ display: 'flex', gap: '10px' }}>
+    <div className={styles.container}>
+      <div className={styles.form}>
         <input
+          className={styles.input}
           value={novaTarefa}
           onChange={(e) => setNovaTarefa(e.target.value)}
           placeholder="Digite uma tarefa"
         />
-        <button
-          onClick={adicionarTarefa}
-          style={{
-            padding: '10px 16px',
-            borderRadius: '5px',
-            backgroundColor: '#007bff',
-            color: '#fff',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-        >
+        <input
+          className={styles.input}
+          value={descricao}
+          onChange={(e) => setDescricao(e.target.value)}
+          placeholder="Descrição da tarefa"
+        />
+        <input
+          className={styles.input}
+          type="date"
+          value={dataInicio}
+          onChange={(e) => setDataInicio(e.target.value)}
+          placeholder="Data de início"
+        />
+        <input
+          className={styles.input}
+          type="date"
+          value={dataTermino}
+          onChange={(e) => setDataTermino(e.target.value)}
+          placeholder="Data de término"
+        />
+        <button onClick={adicionarTarefa} className={styles.button}>
           Adicionar
         </button>
       </div>
 
-      {/* Lista de tarefas */}
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
+      <ul className={styles.taskList}>
         {tarefas.map((tarefa) => (
-          <li key={tarefa.id} style={{ marginBottom: '10px' }}>
-            <span
-              style={{
-                textDecoration: tarefa.concluida ? 'line-through' : 'none',
-                marginRight: '10px',
-              }}
-            >
-              {tarefa.titulo}
-            </span>
+          <li key={tarefa.id} className={styles.taskItem}>
+            <div className={`${styles.taskDetails} ${tarefa.concluida ? styles.concluida : ''}`}>
+              <h3 className={styles.taskTitle}>{tarefa.titulo}</h3>
+              <p className={styles.taskDescription}>{tarefa.descricao}</p>
+              <p className={styles.taskDate}>Início: {tarefa.dataInicio}</p>
+              <p className={styles.taskDate}>Término: {tarefa.dataTermino}</p>
+            </div>
             <button
               onClick={() => alternarStatus(tarefa.id)}
-              style={{
-                backgroundColor: tarefa.concluida ? '#ff9800' : '#4caf50',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '5px',
-                padding: '6px 10px',
-                cursor: 'pointer',
-              }}
-            >
+              className={`${styles.statusButton} ${tarefa.concluida ? styles.desfazer : styles.concluir}`}>
               {tarefa.concluida ? 'Desfazer' : 'Concluir'}
+            </button>
+            <button onClick={() => removerTarefa(tarefa.id)} className={styles.removeButton}>
+              Remover
             </button>
           </li>
         ))}

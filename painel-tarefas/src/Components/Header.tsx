@@ -1,13 +1,12 @@
 import React from "react";
-
+import styles from './Header.module.css';
 
 function Header() {
     return (
-        <header style={{ padding: '10px', backgroundColor: '#f5f5f5', textAlign: 'center' }}>
-            <h1>Painel de controle de tarefas</h1>
+        <header className={styles.header}>
+            <h1 className={styles.title}>Painel de controle de tarefas</h1>
         </header>
     );
 }
-
 
 export default Header;

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ContadorTarefas.module.css';
 
 type Tarefa = {
     id: number;
@@ -15,9 +16,9 @@ const ContadorTarefas: React.FC<Props> = ({ tarefas }) => {
     const pendentes = tarefas.length - concluidas;
 
     return (
-        <div style={{ marginTop: '20px', position: 'fixed', bottom: 0, left: 0, width: '100%' }}>
-            <p>✅ Tarefas concluídas: {concluidas}</p>
-            <p>⏳ Tarefas pendentes: {pendentes}</p>
+        <div className={styles.container}>
+            <p className={styles.text}>✅ Tarefas concluídas: {concluidas}</p>
+            <p className={styles.text}>⏳ Tarefas pendentes: {pendentes}</p>
         </div>
     );
 };
