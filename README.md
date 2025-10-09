@@ -1,80 +1,98 @@
-#  Atividade Prática – Explorando Hooks no React
+# Painel de Controle de Tarefas
 
-##  Objetivo
-Aplicar os conceitos dos **React Hooks** (`useState`, `useEffect`, `useCallback`, `useReducer`) para criar componentes funcionais dinâmicos, que gerenciem estado e efeitos colaterais de forma eficiente.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
----
+Um painel de controle de tarefas simples e eficiente, desenvolvido como uma atividade prática para explorar os principais Hooks do React.
 
-##  Contexto da Atividade
-Imagine que você está desenvolvendo um **painel de controle de tarefas** para um aplicativo de produtividade.  
-Esse painel deverá permitir **adicionar**, **remover** e **marcar tarefas como concluídas**, além de **exibir o total de tarefas pendentes**.  
+## Visão Geral
 
-Durante o desenvolvimento, você perceberá a importância dos **Hooks**:
-- `useState` para armazenar os dados (tarefas, status, etc.);
-- `useEffect` para reagir a mudanças no estado e salvar as tarefas no navegador (simulando um banco local);
-- `useCallback` para otimizar funções que são chamadas repetidamente;
-- `useReducer` para organizar melhor a lógica de atualização do estado.
+Este projeto é uma aplicação de produtividade que permite aos usuários gerenciar suas tarefas diárias. Ele foi construído para demonstrar o uso prático e a sinergia de hooks essenciais do React, como `useState`, `useEffect`, `useReducer` e `useCallback`, em um ambiente TypeScript.
 
----
+## Features
 
-##  Instruções
+-   **Adicionar Tarefas**: Crie novas tarefas com título, descrição e datas de início/término.
+-   **Marcar como Concluída**: Alterne o status de uma tarefa entre pendente e concluída.
+-   **Remover Tarefas**: Exclua tarefas da lista.
+-   **Contador de Tarefas**: Visualize o número total de tarefas e quantas estão concluídas.
+-   **Persistência de Dados**: As tarefas são salvas no `localStorage` do navegador, para que não se percam ao recarregar a página.
 
-1. Crie um novo projeto React com **TypeScript + SWC**:
-   ```bash
-   npm create vite@latest painel-tarefas -- --template react-swc-ts
-   cd painel-tarefas
-   npm install
-   npm run dev
-   ```
+## Tecnologias Utilizadas
 
-2. Crie um componente principal chamado `App.tsx` que servirá como ponto de partida.
+-   **React**: Biblioteca para construção da interface de usuário.
+-   **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+-   **Vite**: Ferramenta de build moderna e rápida para desenvolvimento front-end.
+-   **CSS Modules**: Para estilização escopada por componente.
 
-3. No componente, implemente:
-   - Uma lista de tarefas (`useState` ou `useReducer`);
-   - Um campo de entrada para adicionar novas tarefas;
-   - Um botão para remover tarefas;
-   - Uma contagem automática de tarefas pendentes (usando `useEffect`);
-   - Uma função otimizada com `useCallback` para marcar tarefas como concluídas.
+## Pré-requisitos
 
-4. A interface pode ser simples, mas deve ser **funcional e clara**.  
-   Use elementos básicos do HTML (input, button, ul/li, etc.).
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
----
+-   [Node.js](https://nodejs.org/en/) (versão 18.x ou superior)
+-   [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 
-##  Desafios Extras
-- Salve e carregue as tarefas do **localStorage**;
-- Adicione um botão para **limpar todas as tarefas concluídas**;
-- Mostre uma mensagem condicional caso **não existam tarefas**.
+## Como Rodar o Projeto
 
----
+Siga os passos abaixo para executar o projeto em seu ambiente local:
 
-##  Entrega
-- Crie um **repositório no GitHub** com o nome `painel-tarefas-hooks`.
-- Faça commits representando o progresso da implementação.
-- Envie o link do repositório no **canal da turma**.
+1.  **Clone o repositório:**
 
----
+    ```bash
+    git clone https://github.com/seu-usuario/painel-tarefas-hooks.git
+    ```
 
-##  Critérios de Avaliação
-| Critério | Descrição | Pontuação |
-|-----------|------------|-----------|
-| Organização do código | Componentes bem estruturados e reutilizáveis | 2 pts |
-| Uso correto dos Hooks | Aplicação adequada de `useState`, `useEffect`, `useCallback` e/ou `useReducer` | 3 pts |
-| Funcionalidade completa | Tarefas sendo adicionadas, marcadas e removidas corretamente | 2 pts |
-| Estilo e clareza da interface | Layout simples e compreensível | 1 pt |
-| Boas práticas de versionamento | Commits claros e organizados no GitHub | 2 pts |
+2.  **Navegue até o diretório do projeto:**
 
-**Total: 10 pontos**
+    ```bash
+    cd painel-tarefas
+    ```
 
----
+3.  **Instale as dependências:**
 
-##  Referências
-- [Documentação oficial do React – Hooks](https://react.dev/learn/state-a-components-memory)
-- [Documentação do useEffect](https://react.dev/reference/react/useEffect)
-- [Documentação do useReducer](https://react.dev/reference/react/useReducer)
-- [Documentação do useCallback](https://react.dev/reference/react/useCallback)
+    Com npm:
+    ```bash
+    npm install
+    ```
 
----
+    Ou com yarn:
+    ```bash
+    yarn install
+    ```
 
- **Desafio final:**  
-Adapte esse projeto para outro contexto (como um painel de alunos, lista de compras ou controle de treinos), aplicando os mesmos conceitos aprendidos.
+4.  **Inicie o servidor de desenvolvimento:**
+
+    ```bash
+    npm run dev
+    ```
+
+5.  **Abra o navegador:**
+
+    Acesse [http://localhost:5173](http://localhost:5173) (ou a porta indicada no seu terminal) para ver a aplicação em funcionamento.
+
+## Estrutura do Projeto
+
+O projeto está organizado da seguinte forma:
+
+```
+/
+├── public/               # Arquivos estáticos
+├── src/
+│   ├── assets/           # Imagens e outros assets
+│   ├── components/       # Componentes React reutilizáveis
+│   │   ├── ContadorTarefas/
+│   │   ├── Header/
+│   │   ├── Input/
+│   │   └── TaskList/
+│   ├── App.tsx           # Componente principal da aplicação
+│   ├── main.tsx          # Ponto de entrada da aplicação
+│   └── index.css         # Estilos globais
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
