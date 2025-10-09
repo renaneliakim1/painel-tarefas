@@ -1,0 +1,15 @@
+
+.header {
+  background-color: #1A1A1A;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.title {
+  color: #E0E0E0;
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: none;
+}

@@ -1,39 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.button {
-  padding: 10px 16px;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
 .taskList {
   list-style-type: none;
   padding: 0;
@@ -41,10 +5,10 @@
 
 .taskItem {
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   padding: 15px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #242424;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
@@ -64,13 +28,13 @@
 
 .taskDescription {
   margin: 5px 0;
-  color: #555;
+  color: #AAA;
 }
 
 .taskDate {
   margin: 5px 0;
   font-size: 0.9rem;
-  color: #777;
+  color: #888;
 }
 
 .statusButton {

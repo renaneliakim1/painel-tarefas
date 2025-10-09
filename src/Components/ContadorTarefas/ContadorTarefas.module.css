@@ -4,14 +4,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: #1A1A1A;
   padding: 10px;
   text-align: center;
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
 }
 
 .text {
   margin: 5px 0;
   font-size: 1rem;
-  color: #333;
+  color: #E0E0E0;
 }
