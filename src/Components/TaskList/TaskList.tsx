@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tarefa } from '../../App';
+import type { Tarefa } from '../../App';
 import styles from './TaskList.module.css';
 
 type Props = {
